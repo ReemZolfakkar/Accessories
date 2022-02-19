@@ -30,6 +30,11 @@ function Navbar() {
               Contact
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/Login">
+              Sign in
+            </Link>
+          </li>
         </ul>
         {/* <form className="form-inline my-2 my-lg-0">
           <input
