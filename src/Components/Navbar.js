@@ -27,7 +27,7 @@ function Navbar() {
         <span className="user-icon">
           <FaUserCircle />
         </span>
-        <Link className="login" to="/Login">
+        <Link className="login" to="/Auth/Login">
           Log In
         </Link>
       </div>

@@ -1,6 +1,8 @@
-import React,{useState}from 'react'
-
+import React,{useEffect, useState}from 'react'
+import register_validate from '../../Functions/Register_Validate'
 function Register() {
+    const [formerrors,setFormErrors]=useState({});
+    const [isSubmit,setisSubmit]=useState(false);
     const [newuser,setNewuser]=useState({
         name:'',
         password:'',
@@ -8,56 +10,64 @@ function Register() {
         address:'',
         phone:'',
     })
-    const [formerrors,setFormErrors]=useState({});
     const handleInput=e=>
     {   
         const key = e.target.name;
-        console.log(e.target.name)
         const value =e.target.value;
         setNewuser({...newuser,[key]:value})    
     }
     const handleNewUser=e=>
-    {
-       
-        console.log(newuser)
+    { e.preventDefault();
+       setFormErrors(register_validate(newuser));
+        setisSubmit(true);
     }
+    useEffect(()=>{
+        if(Object.keys(formerrors).length===0 && isSubmit)
+        {
+            setisSubmit(true)
+        }
+    },[formerrors])
     return (
         <div onSubmit={handleNewUser}>
-            <div className="Register-form">
-                <h2>Time to feel like home,</h2>
-                <div className='Register-form__items'>
-                    <label className='Register-form__label'>
+            <div className="Auth-form">
+                <div className='Auth-form__items'>
+                    <label className='Auth-form__label'>
                         Name
                     </label>
-                    <input type="text"  className='Register-form__inputs' name="name" onChange={handleInput}>
+                    <input type="text"  className='Auth-form__inputs' name="name" onChange={handleInput}>
                     </input>
                 </div>
-                <div className='Register-form__items'>
-                    <label className='Register-form__label'>
+                <p className='Auth-form__error'>{formerrors.name}</p>
+                <div className='Auth-form__items'>
+                    <label className='Auth-form__label'>
                         email
                     </label>
-                    <input type="text"  className='Register-form__inputs' name="email" onChange={handleInput}>
+                    <input type="text"  className='Auth-form__inputs' name="email" onChange={handleInput}>
                     </input>
+                <p className='Auth-form__error'>{formerrors.email}</p>
                 </div>
-                <div className='Register-form__items'>
-                    <span className='Register-form__label'>
+                <div className='Auth-form__items'>
+                    <span className='Auth-form__label'>
                         Password
                     </span>
-                    <input className='Register-form__inputs' type="password" name="password" onChange={handleInput} />
+                    <input className='Auth-form__inputs' type="password" name="password" onChange={handleInput} />
                 </div>
-                <div className='Register-form__items'> 
-                    <span className='Register-form__label'>
+                <p className='Auth-form__error'>{formerrors.password}</p>
+                <div className='Auth-form__items'> 
+                    <span className='Auth-form__label'>
                         Address
                     </span>
-                    <input className='Register-form__inputs' type="text" name="address" onChange={handleInput}/>
+                    <input className='Auth-form__inputs' type="text" name="address" onChange={handleInput}/>
                 </div>
-                <div className='Register-form__items'> 
-                    <span className='Register-form__label'>
+                <p className='Auth-form__error'>{formerrors.address}</p>
+                <div className='Auth-form__items'> 
+                    <span className='Auth-form__label'>
                         Phone number
                     </span>
-                    <input className='Register-form__inputs' type="text" name="phone" onChange={handleInput}/>
+                    <input className='Auth-form__inputs' type="text" name="phone" onChange={handleInput}/>
                 </div>
-                <div className='Register-form__items'>
+                <p className='Auth-form__error'>{formerrors.phone}</p>
+                <div className='Auth-form__items'>
                     <button type="button" className="Auth-button" onClick={handleNewUser} >Sign Up</button>
                 </div>  
             </div>

@@ -1,29 +1,54 @@
-import React from "react";
+import React,{useEffect, useState}from 'react'
+import register_validate from './../../Functions/Register_Validate';
 
 function Login() {
-  return <>
-  <h5 className="title">
-    Welcome back
-  </h5>
-  <form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email/Username</label>
-    
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1"/>
-  </div>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-  </>;
+    const [formerrors,setFormErrors]=useState({});
+    const [isSubmit,setisSubmit]=useState(false);
+    const [user,setUser]=useState({
+        email:'',
+        password:'',
+    })
+    const handleInput=e=>
+    {   
+        const key = e.target.name;
+        const value =e.target.value;
+        setUser({...user,[key]:value})    
+    }
+    const handleUser=e=>
+    { e.preventDefault();
+       setFormErrors(register_validate(user));
+        setisSubmit(true);
+    }
+  
+    useEffect(()=>{
+        if(Object.keys(formerrors).length===0 && isSubmit)
+        {
+            setisSubmit(true)
+        }
+    },[formerrors])
+    return (
+        <div onSubmit={handleUser}>
+            <div className="Auth-form">
+                <div className='Auth-form__items'>
+                    <label className='Auth-form__label'>
+                        Email
+                    </label>
+                    <input type="text"  className='Auth-form__inputs' name="email" onChange={handleInput}>
+                    </input>
+                <p className='Auth-form__error'>{formerrors.email}</p>
+                </div>
+                <div className='Auth-form__items'>
+                    <span className='Auth-form__label'>
+                        Password
+                    </span>
+                    <input className='Auth-form__inputs' type="password" name="password" onChange={handleInput} />
+                </div>
+                <div className='Auth-form__items'>
+                    <button type="button" className="Auth-button" onClick={handleUser} >Sign In</button>
+                </div>  
+            </div>
+        </div>
+    )
 }
 
-export default Login;
-
+export default Login

@@ -1,7 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Styles/Auth.css";
 import "./Styles/Navbar.css";
-import "./Styles/Login.css";
 import "./Styles/App.css";
 import Navbar from "./Components/Navbar";
 import { Route, BrowserRouter, Switch } from "react-router-dom";
@@ -12,6 +11,7 @@ import OurStory from "./Components/OurStory/OurStory";
 import Contact from "./Components/Contact/Contact";
 import Register from "./Components/Authentication/Register";
 import Login from './Components/Authentication/Login';
+import Authentication from './Components/Authentication/Authentication';
 
 function App() {
   return (
@@ -31,14 +31,14 @@ function App() {
           <Route path="/Contact">
             <Contact />
           </Route>
-          <Route path="/Login">
+          {/* <Route path="/Login">
             <Login />
+          </Route> */}
+          <Route path="/Auth/Register">
+            <Authentication />
           </Route>
-          <Route path="/Register">
-            <Register />
-          </Route>
-          <Route path="/Login">
-            <Login />
+          <Route path="/Auth/Login">
+            <Authentication />
           </Route>
           <Route path="/">
             <Home />
