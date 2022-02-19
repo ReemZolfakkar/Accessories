@@ -1,9 +1,10 @@
 .Register-form{
     vertical-align:middle;
     text-align:center;
+    margin-bottom: 10px;
 }
 .Register-form__items{
-    margin-top: 10px;
+    margin-top: 5px;
 }
 .Register-form__label{
     display: block;
@@ -11,10 +12,14 @@
     color: #cfcfcf;
     text-transform: uppercase;
 }
+.Register-form__error{
+    color: red;
+    font-size: 14px;
+}
+
 .Register-form__inputs{
-    margin-top: 5px;
     padding-bottom: 5px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: lighter;
     border-bottom: 1px solid rgba(0, 0, 0, 0.4);
     border-left: none;
@@ -40,3 +45,9 @@
     border: none;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
   }
+  .Auth-button:active {
+    transform: scale(0.98);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    /* Lowering the shadow */
+}
