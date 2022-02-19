@@ -1,3 +1,11 @@
+@font-face {
+  font-family: didot;
+  src: url(../fonts/didot/Didot-HTF-L06-Light.ttf) format("truetype");
+}
+@font-face {
+  font-family: avenir;
+  src: url(../fonts/Avenir/avenir_ff/AvenirLTStd-Book.otf) format("truetype");
+}
 .App{
   background-color: #ABA9A5;
   margin-top: 15px;
