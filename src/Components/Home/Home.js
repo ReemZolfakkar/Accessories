@@ -3,9 +3,9 @@ import React from 'react'
 function Home() {
     return (
         <div>
-            dummy
+            1
             <br/>
-            dummy
+            2
             <br/> dummy
             <br/> dummy
             <br/> dummy
