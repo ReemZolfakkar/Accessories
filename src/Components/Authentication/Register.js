@@ -68,7 +68,7 @@ function Register() {
                 </div>
                 <p className='Auth-form__error'>{formerrors.phone}</p>
                 <div className='Auth-form__items'>
-                    <button type="button" className="Auth-button" onClick={handleNewUser} >Sign Up</button>
+                    <button type="button" className="Auth-button Auth-form-button" onClick={handleNewUser} >Sign Up</button>
                 </div>  
             </div>
         </div>

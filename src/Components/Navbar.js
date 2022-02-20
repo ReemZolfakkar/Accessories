@@ -65,8 +65,8 @@ function Navbar() {
             <input className="search" type="search" placeholder="Search..." />
           </form>
         </div>
-        <div className="col-lg-4 col-2 nav-brand">adalene.</div>
-        <div className="col-lg-4 col-10">
+        <div className="col-lg-3 col-2 nav-brand">adalene.</div>
+        <div className="col-lg-5 col-10">
           <ul className="navbar-nav--head align-items-center">
             {socialIcons.map((element) => {
               return (

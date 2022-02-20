@@ -44,7 +44,7 @@ function Login() {
                     <input className='Auth-form__inputs' type="password" name="password" onChange={handleInput} />
                 </div>
                 <div className='Auth-form__items'>
-                    <button type="button" className="Auth-button" onClick={handleUser} >Sign In</button>
+                    <button type="button" className="Auth-button Auth-form-button" onClick={handleUser} >Sign In</button>
                 </div>  
             </div>
         </div>

@@ -9,9 +9,8 @@ import ShopAll from "./Components/ShopAll/ShopAll";
 import OurCraft from "./Components/OurCraft/OurCraft";
 import OurStory from "./Components/OurStory/OurStory";
 import Contact from "./Components/Contact/Contact";
-import Register from "./Components/Authentication/Register";
-import Login from './Components/Authentication/Login';
-import Authentication from './Components/Authentication/Authentication';
+import Authentication from "./Components/Authentication/Authentication";
+import MyContextProvider from "./Contexts/context1";
 
 function App() {
   return (
@@ -29,7 +28,9 @@ function App() {
             <OurCraft />
           </Route>
           <Route path="/Contact">
-            <Contact />
+            <MyContextProvider>
+              <Contact />
+            </MyContextProvider>
           </Route>
           {/* <Route path="/Login">
             <Login />

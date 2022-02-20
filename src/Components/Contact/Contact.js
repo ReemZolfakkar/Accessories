@@ -1,7 +1,9 @@
-import React from "react";
+import React,{useContext} from "react";
+import { myContext } from './../../Contexts/context1';
 
 function Contact() {
-  return <div>hello from contact</div>;
+  const d=useContext(myContext)
+  return <div>{d}</div>;
 }
 
 export default Contact;

@@ -35,7 +35,7 @@ const register_validate=(NewUser)=>
     }
     if(!phoneno.test(NewUser.phone))
     {
-        error.phone="phone is in wrong format";
+        error.phone="Phone is in wrong format";
     }
     if(!NewUser.phone)
     {
