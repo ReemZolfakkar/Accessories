@@ -1,8 +1,9 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./Styles/App.css";
 import "./Styles/Auth.css";
 import "./Styles/Navbar.css";
 import "./Styles/Login.css";
-import "./Styles/App.css";
+import "./Styles/Product.css";
 import Navbar from "./Components/Navbar";
 import { Route, BrowserRouter, Switch } from "react-router-dom";
 import Home from "./Components/Home/Home";
@@ -12,6 +13,7 @@ import OurStory from "./Components/OurStory/OurStory";
 import Contact from "./Components/Contact/Contact";
 import Register from "./Components/Authentication/Register";
 import Login from './Components/Authentication/Login';
+import ProductDetails from './Components/ShopAll/ProductDetails';
 
 function App() {
   return (
@@ -39,6 +41,9 @@ function App() {
           </Route>
           <Route path="/Login">
             <Login />
+          </Route>
+          <Route path="/ProductDetails/:id">
+            <ProductDetails />
           </Route>
           <Route path="/">
             <Home />
