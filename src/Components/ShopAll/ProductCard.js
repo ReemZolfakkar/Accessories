@@ -3,8 +3,9 @@ import { Link,useHistory } from "react-router-dom"
 import bag1 from '../../Images/bag1.jpg'
 
 function ProductCard(props) {
+   
+
   return (<>
-  
     <div  className='product-item' >
         <Link to={`/ProductDetails/${props.id}`}>
             <div className='product-item-header'>
