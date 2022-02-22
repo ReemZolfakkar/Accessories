@@ -1,13 +1,17 @@
 {
+  "Cart":[
+      {
+          "color":"red",
+          "quantity":"3"
+      }
+  ],
   "Products": [
     {
       "imgurl": "../../Images/bag1.jpg",
       "name": "leatherbag",
       "colors": [
         "red"
-      ],
-      "price": "399",
-      "id": 0
+      ]
     },
     {
       "imgurl": "../../Images/bag1.jpg",
