@@ -65,3 +65,8 @@
     font-family:  didot-italic;
     color: rgb(17, 17, 17);
   }
+  .product-details{
+      vertical-align: middle;
+     padding:10px 20%;
+     margin-top: 10px;
+  }
