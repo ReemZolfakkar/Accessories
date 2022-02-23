@@ -58,7 +58,6 @@ a {
 }
 .Auth-container__toggle-section {
   border-radius: 4px;
-  background-repeat: no-repeat !important;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("../Images/auth5.jpg");
   background-size: cover;

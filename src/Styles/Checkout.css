@@ -1,23 +1,58 @@
 .Checkout{
     justify-content: center;
     align-items: center;
+    margin: 0 !important;
 }
 .Chechout__summarize{
     background-color: rgb(212, 190, 233);
 }
 .Chechout__form{
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
     background-color: rgb(110, 148, 150);
+    padding-bottom: 30px;
 }
 .Chechout__form input{
-    background-color: rgb(238, 234, 234);
+    background-color: rgba(238, 234, 234, 0.342);
+    border: none;
+    width: 100%;
+}
+/* Chrome, Safari, Edge, Opera */
+.Chechout__form input::-webkit-outer-spin-button,
+.Chechout__form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+.Chechout__form input[type=number] {
+  -moz-appearance: textfield;
 }
 .Chechout__form__visa{
     text-align: center;
     color: white;
     font-size: 100px;
+    line-height: 20px;
 }
 .Chechout__form__label{
     display: block;
     color: white;
     font-family: avenir;
 }
+.Chechout__form__button {
+    margin: 35px auto 0;
+    width: 100px;
+    height: 36px;
+    color: rgb(243, 240, 240);
+    font-weight: bold;
+    border: 3px solid rgb(243, 240, 240);
+    background-color: transparent;
+    text-decoration: none !important;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    font-family: avenir;
+    letter-spacing: 2px;
+  }
