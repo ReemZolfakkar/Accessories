@@ -3,12 +3,12 @@ import ProductCard from "./ProductCard";
 import ManageData from '../../ManageData'
 
 function ShopAll() {
-  const {data,error,isPendong}=ManageData('http://localhost:3001/Products')
+  const {data,error,isPending}=ManageData('http://localhost:3001/Products')
   return <div>
     {error && <div>
       {error}
       </div>}
-      {isPendong && <div>
+      {isPending && <div>
       Loading ....
       </div>}
     { data && <>
