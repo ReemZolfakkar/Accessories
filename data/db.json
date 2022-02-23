@@ -1,0 +1,19 @@
+{   "Products":[
+    {
+    
+     "imgurl":"",
+     "name":"leatherbag",
+     "colors":["red"],
+     "price":"399",
+     "id":1
+    },
+    {
+        "imgurl":"",
+        "name":"leatherbag",
+        "colors":["red","blue"],
+        "price":"399",
+        "id":2
+
+    }
+    ]
+}

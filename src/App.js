@@ -1,7 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./Styles/Auth.css";
-import "./Styles/Navbar.css";
 import "./Styles/App.css";
+import "./Styles/Auth.css";
+import "./Styles/Cart_Product.css";
+import "./Styles/Navbar.css";
+import "./Styles/Checkout.css";
+import "./Styles/Product.css";
 import Navbar from "./Components/Navbar";
 import { Route, BrowserRouter, Switch } from "react-router-dom";
 import Home from "./Components/Home/Home";
@@ -10,9 +13,12 @@ import OurCraft from "./Components/OurCraft/OurCraft";
 import OurStory from "./Components/OurStory/OurStory";
 import Contact from "./Components/Contact/Contact";
 import Authentication from "./Components/Authentication/Authentication";
-import MyContextProvider from "./Contexts/context1";
+import ProductDetails from "./Components/ShopAll/ProductDetails";
+import ManageData from "./ManageData";
+import Checkout from "./Components/Checkout/Checkout";
 
 function App() {
+  ManageData("http://localhost:3001");
   return (
     <BrowserRouter>
       <Navbar />
@@ -28,18 +34,16 @@ function App() {
             <OurCraft />
           </Route>
           <Route path="/Contact">
-            <MyContextProvider>
-              <Contact />
-            </MyContextProvider>
+            <Contact />
           </Route>
-          {/* <Route path="/Login">
-            <Login />
-          </Route> */}
-          <Route path="/Auth/Register">
+          <Route path="/Auth/:Auth_type">
             <Authentication />
           </Route>
-          <Route path="/Auth/Login">
-            <Authentication />
+          <Route path="/ProductDetails/:id">
+            <ProductDetails />
+          </Route>
+          <Route path="/Checkout">
+            <Checkout />
           </Route>
           <Route path="/">
             <Home />

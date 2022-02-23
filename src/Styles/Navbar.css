@@ -1,11 +1,4 @@
-@font-face {
-  font-family: didot;
-  src: url(../fonts/didot/Didot-HTF-L06-Light.ttf) format("truetype");
-}
-@font-face {
-  font-family: avenir;
-  src: url(../fonts/Avenir/avenir_ff/AvenirLTStd-Book.otf) format("truetype");
-}
+
 #nav-section{
   position: sticky;
   background-color: #FFFFFF;

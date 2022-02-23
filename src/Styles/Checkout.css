@@ -1,0 +1,23 @@
+.Checkout{
+    justify-content: center;
+    align-items: center;
+}
+.Chechout__summarize{
+    background-color: rgb(212, 190, 233);
+}
+.Chechout__form{
+    background-color: rgb(110, 148, 150);
+}
+.Chechout__form input{
+    background-color: rgb(238, 234, 234);
+}
+.Chechout__form__visa{
+    text-align: center;
+    color: white;
+    font-size: 100px;
+}
+.Chechout__form__label{
+    display: block;
+    color: white;
+    font-family: avenir;
+}

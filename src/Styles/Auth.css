@@ -50,6 +50,7 @@ a {
   /* Lowering the shadow */
 }
 .Auth-container {
+  display: flex;
   justify-content: space-evenly;
   align-items: center;
   margin: 0 initial !important;

@@ -2,19 +2,18 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function Authentication() {
-  const location = useLocation();
+  const { Auth_type } = useParams();
   const [currentTab, setTab] = useState("Login");
   const [tabData, setTabData] = useState({
     title: "Welcome back,",
   });
   useEffect(() => {
-    let current_tab = location.pathname.split("/")[2];
-    setTab(current_tab);
+    setTab(Auth_type);
     let tab_data =
-      current_tab == "Login"
+      Auth_type == "Login"
         ? {
             component: <Login />,
             title: "Welcome back,",
@@ -32,15 +31,18 @@ function Authentication() {
             buttonText: "Sign in",
           };
     setTabData(tab_data);
-  }, [location]);
+  }, [Auth_type]);
 
   return (
-    <div className="d-flex Auth-container">
+    <div className="Auth-container">
       <div>
         <h2 className="Auth-form__title">{tabData.title}</h2>
         {tabData.component}
         <Link to={`/Auth/${currentTab == "Login" ? "Register" : "Login"}`}>
-          <button type="button" className="Auth-button Auth-form-button Auth-toggle-btn__responsive">
+          <button
+            type="button"
+            className="Auth-button Auth-form-button Auth-toggle-btn__responsive"
+          >
             {tabData.buttonText}
           </button>
         </Link>

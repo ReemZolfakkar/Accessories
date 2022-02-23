@@ -31,7 +31,9 @@ function Navbar() {
           Log In
         </Link>
       </div>
-      <span className="cart">Cart(0)</span>
+      <Link className="cart" to="/Checkout">
+        Cart(0)
+      </Link>
     </div>,
     ,
   ]);
@@ -71,9 +73,9 @@ function Navbar() {
             {socialIcons.map((element) => {
               return (
                 <li key={Math.random() * 1000} className="nav-item--top">
-                  <a className="nav-link--top" href="#">
+                  <span className="nav-link--top">
                     {element}
-                  </a>
+                  </span>
                 </li>
               );
             })}
