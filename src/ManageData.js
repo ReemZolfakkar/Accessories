@@ -19,7 +19,7 @@ const ManageData=(url)=>
                 setError(null);
             })
             .catch(err=>{
-                    isPending(false);
+                    setIsPending(false);
                     setError(err.message);
             })
         },1000);

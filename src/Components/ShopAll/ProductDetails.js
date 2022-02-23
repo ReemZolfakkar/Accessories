@@ -7,6 +7,7 @@ import bag1 from '../../Images/bag1.jpg'
 function ProductDetails(props) {
     const {id}=useParams()
     const {data:product,error,isPending}=ManageData(`http://localhost:3001/Products/${id}`)
+    const {data:orders,e,isPend}=ManageData(`http://localhost:3001/Cart`)
     const [cart,setCart]=useState({color:'',quantity:''})
     const handleCart=(e)=>{
       const key = e.target.name;
@@ -14,16 +15,15 @@ function ProductDetails(props) {
       setCart({...cart,[key]:value})    
     }
     const submitCart=(e)=>{
-           const product=cart;
+           const order=cart;
            fetch('http://localhost:3001/Cart',{
             method:'POST',
             headers:{"Content-Type":"application/json"},
-            body:JSON.stringify(product)
+            body:JSON.stringify(order)
            }).then(()=>{
              console.log("new product in cart")
            })
     }
-    console.log(product)
     return (
     <div className='product-details'>
       {isPending && <div>Loading...</div>}
@@ -31,7 +31,7 @@ function ProductDetails(props) {
       {product &&
        <div className='row'>
        <div className='col'>
-         <img src={product.imgurl}></img>
+         
        </div>
        <div className='col'>
           <div>

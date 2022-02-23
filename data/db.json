@@ -1,37 +1,29 @@
-{
-  "Cart":[
-      {
-          "color":"red",
-          "quantity":"3"
-      }
-  ],
+{  
   "Products": [
     {
+      "id": 1,
       "imgurl": "../../Images/bag1.jpg",
       "name": "leatherbag",
+      "price": "399",
       "colors": [
         "red"
       ]
     },
     {
+      "id": 2,
       "imgurl": "../../Images/bag1.jpg",
       "name": "leatherbag",
-      "colors": [
-        "red",
-        "blue"
-      ],
       "price": "399",
-      "id": 1
-    },
+      "colors": [
+        "red"
+      ]
+    }
+  ],
+  "Cart": [
     {
-      "id": 2,
-      "color": "",
-      "quantity": ""
-    },
-    {
-      "id": 3,
-      "color": "",
-      "quantity": "5"
+      "color": "red",
+      "quantity": "3",
+      "price": "399"
     }
   ]
 }
