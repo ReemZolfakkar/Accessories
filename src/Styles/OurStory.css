@@ -1,0 +1,37 @@
+
+.left-img {
+    background-image: url("../Images/decor.webp");
+    height: 500px;
+    min-height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
+  .left-paragraph{
+    background-color: #f6f3ef;
+    color: black;
+    height: 500px;
+  }
+  .right-img{
+  
+    background-image: url("../Images/motheranddaughter.webp");
+    height: 500px;
+    min-height: 500px;
+ 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .ourstyle-title{
+    letter-spacing: 0.25em;
+  }
+  
+  .right-paragraph{
+    border: 0;
+    padding: 0;
+    margin: 0;
+    height:500px;
+    background-color:#f6f3ef;
+    padding: 50px 0 !important;
+  }
