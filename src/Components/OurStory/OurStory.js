@@ -1,4 +1,6 @@
 import React from "react";
+import img1 from "../../Images/decor.webp"
+import img2 from "../../Images/motheranddaughter.webp"
 import Left_widget from "./Left_widget";
 import Right_widget from "./Right_widget";
 
@@ -11,11 +13,11 @@ function OurStory() {
       </span>
     </h1>
     </div>
-    <div className="col-6">
-        <Left_widget/>
+    <div >
+        <Left_widget title={"THE BRAND"} imgurl={img1}/>
     </div>
-      <div className="col-6">
-       <Right_widget/>
+      <div >
+       <Right_widget title={"THE DESINGER"} imgurl={img2}/>
    </div>   
   </div>
 }

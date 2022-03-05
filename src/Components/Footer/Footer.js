@@ -4,60 +4,60 @@ import { Link } from 'react-router-dom'
 function Footer() {
   return (
     <div className='footer'>
-        <div className='row flex-center'>
+        <div className='row flex-center' style={{marginTop:'50px'}}>
             <div className='col-sm'>
                 <div className="nav-brand">adalene.</div>
             </div>
             <div className='col-sm footer-item'>
-                    <div>
-                        <Link>
+                    <div className='footer-item-value'>
+                        <Link style={{color:'black'}}>
                             Home
                         </Link>
                     </div>
-                    <div>
-                        <Link>
+                    <div className='footer-item-value'>
+                        <Link style={{color:'black'}}>
                             ShopAll
                         </Link>
                     </div>
-                    <div>
-                        <Link>
+                    <div className='footer-item-value'>
+                        <Link style={{color:'black'}}>
                             OurStory
                         </Link>
                     </div>
-                    <div>
-                        <Link>
+                    <div className='footer-item-value'>
+                        <Link style={{color:'black'}}>
                             OurCraft
                         </Link>
                     </div>
             </div>
             <div className='col-sm footer-item'>
-                    <div>
+                    <div className='footer-item-value'>
                         FAQ
                     </div>
-                    <div>
+                    <div className='footer-item-value'>
                         Shipping  & Returns
                     </div>
-                    <div>
+                    <div className='footer-item-value'>
                             Store Policy
                     </div>
-                    <div>
+                    <div className='footer-item-value'>
                         Payment Methods
                     </div>
-                    <div>
+                    <div className='footer-item-value'>
                         Stockists
                     </div>
             </div>
             <div className='col-sm footer-item'>
-                    <div>
+                    <div className='footer-item-value'>
                         Facebook
                     </div>
-                    <div>
+                    <div className='footer-item-value'>
                         Instagram
                     </div>
-                    <div>
+                    <div className='footer-item-value'>
                         Twitter
                     </div>
-                    <div>
+                    <div className='footer-item-value'>
                         Pinterest
                     </div>
             </div>
@@ -71,7 +71,7 @@ function Footer() {
                     <div className="search-box">
                         <input class="email" type='email' id="email" name="email" required></input>
                     </div>
-                    <div >
+                    <div style={{textAlign:'center'}}>
                         <button className='footer-btn'>
                                 Send
                         </button>
