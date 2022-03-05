@@ -26,9 +26,6 @@ function Contact() {
       setisSubmit(true);
     }
   }, [formerrors]);
-  useEffect(() => {
-    console.log(newuser);
-  }, [newuser]);
   return (
     <div className="contact">
       <h1 className="contact__title">GET IN TOUCH</h1>
@@ -133,8 +130,8 @@ function Contact() {
             </div>
           </div>
         </div>
-        <h4 className="contact__body__main-title">STOCKISTS</h4>
-        <div className="row contact__body__three">
+        <h4 className="contact__body__main-title2">STOCKISTS</h4>
+        <div className="row contact__body__three ">
           <div className="col-md-4 col-sm-6 col-12">
             <p className="contact-card1__data mb-3">
               500 Terry Francois St.
