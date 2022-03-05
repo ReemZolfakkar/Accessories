@@ -103,21 +103,22 @@ function Home() {
   const section3Data = Home_Fixed_Cards_Data().section3Data;
   return (
     <>
-      <header className="home-header">
-        <h1 className="home-header__title">CUE THE COLOR</h1>
+      <header className="header">
+        <h1 className="header__title">CUE THE COLOR</h1>
         <div className="text-center">
           <Link to={"/ShopAll"}>
-            <button className="home-header__button">Shop the collection</button>
+            <button className="header__button">Shop the collection</button>
           </Link>{" "}
         </div>
       </header>
+
       <div className="home-carousel">
         <h4 className="sub-title">Best Sellers</h4>
         <ItemsCarousel
           requestToChangeActive={setActiveItemIndex}
           activeItemIndex={activeItemIndex}
           activePosition={"center"}
-          numberOfCards={width > 1100 ? 4 : width < 800 ? 2 : 3}
+          numberOfCards={width > 800 ? 4 : width < 550 ? 1 : 2}
           gutter={20}
           leftChevron={<button>{"<"}</button>}
           rightChevron={<button>{">"}</button>}
@@ -126,9 +127,9 @@ function Home() {
         >
           {products.map((value) => {
             return (
-              <React.Fragment key={value.id}>
+              <div className="carousel1__item" key={value.id}>
                 <ProductCard Product={value} />
-              </React.Fragment>
+              </div>
             );
           })}
         </ItemsCarousel>
@@ -140,20 +141,22 @@ function Home() {
           </Link>
         </div>
       </div>
+
       <div className="row widgets">
-        <div className="col-6 px-0">
+        <div className="col-md-6 col-sm-10 widget">
           <Changed_widget imgUrl={i2} title={"I'm a product"} price={100} />
         </div>
-        <div className="col-6 px-0">
+        <div className="col-md-6 col-sm-10 widget">
           <Fixed_widget imgUrl={i3} title={" MINI LEATHER GOODS"} />
         </div>
-        <div className="col-6 px-0">
+        <div className="col-md-6 col-sm-10 widget">
           <Fixed_widget imgUrl={i7} title={" MINI LEATHER GOODS"} />
         </div>
-        <div className="col-6 px-0">
+        <div className="col-md-6 col-sm-10 widget">
           <Changed_widget imgUrl={i8} title={"I'm a product"} price={100} />
         </div>
       </div>
+
       <div className="row section-3">
         {section3Data.map((item, index) => {
           return (
@@ -181,6 +184,7 @@ function Home() {
           );
         })}
       </div>
+
       <div className="last-section">
         <div className="carousel2">
           <h4 className="sub-title2">
@@ -192,7 +196,9 @@ function Home() {
             requestToChangeActive={setActiveItemIndex}
             activeItemIndex={activeItemIndex}
             activePosition={"center"}
-            numberOfCards={5}
+            numberOfCards={
+              width > 1100 ? 5 : width > 800 ? 3 : width < 550 ? 1 : 2
+            }
             leftChevron={<button>{"<"}</button>}
             rightChevron={<button>{">"}</button>}
             outsideChevron
@@ -206,6 +212,17 @@ function Home() {
               );
             })}
           </ItemsCarousel>
+        </div>
+        <div className="row justify-content-around">
+          <h1 className="col-sm-4 col-12 last-section__title">
+            Worldwide shipping
+          </h1>
+          <h1 className="col-sm-4 col-12 last-section__title">
+            Easy 30 day returns
+          </h1>
+          <h1 className="col-sm-4 col-12 last-section__title">
+            12 month warranty
+          </h1>
         </div>
       </div>
     </>
