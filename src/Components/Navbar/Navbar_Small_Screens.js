@@ -8,7 +8,7 @@ function NavbarSmall(props) {
   const [tabs] = useState(props.tabs);
   const [socialIcons] = useState(props.socialIcons);
   const [expandNav, setExpand] = useState(0);
-  const [activeTab, setActive] = useState("");
+  // const [activeTab, setActive] = useState("");
   const toggleExpand = () => {
     setExpand(!expandNav);
   };
@@ -70,13 +70,8 @@ function NavbarSmall(props) {
                   >
                     <Link
                       className={`${
-                        activeTab == tab.url
-                          ? "nav-link nav-link--active"
-                          : "nav-link"
+                       "nav-link"
                       }`}
-                      onClick={() => {
-                        setActive(tab.url);
-                      }}
                       to={`/${tab.url}`}
                     >
                       {tab.title}

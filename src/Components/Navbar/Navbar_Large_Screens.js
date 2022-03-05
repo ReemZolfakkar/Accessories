@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 
@@ -34,10 +34,10 @@ function NavbarLarge(props) {
       prevY = currentY;
     };
   };
-  useEffect(()=>{
+  useEffect(() => {
     showHideNav();
-  },[])
-  const [activeTab, setActive] = useState("");
+  }, []);
+  // const [activeTab, setActive] = useState("");
   return (
     <div id="nav-section">
       <div className="row nav-top">
@@ -55,9 +55,7 @@ function NavbarLarge(props) {
             {socialIcons.map((element) => {
               return (
                 <li key={Math.random() * 1000} className="nav-item--top">
-                  <span className="nav-link--top">
-                    {element}
-                  </span>
+                  <span className="nav-link--top">{element}</span>
                 </li>
               );
             })}
@@ -74,24 +72,13 @@ function NavbarLarge(props) {
                   key={Math.random() * 1000}
                   className="nav-item"
                 >
-                  <Link
-                    className={`${
-                      activeTab == tab.url
-                        ? "nav-link nav-link--active"
-                        : "nav-link"
-                    }`}
-                    onClick={() => {
-                      setActive(tab.url);
-                    }}
-                    to={`/${tab.url}`}
-                  >
+                  <Link className={`${"nav-link"}`} to={`/${tab.url}`}>
                     {tab.title}
                   </Link>
                 </li>
               );
             })}
           </ul>
-       
         </div>
       </nav>
     </div>
