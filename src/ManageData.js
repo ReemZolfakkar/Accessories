@@ -22,7 +22,7 @@ const ManageData=(url)=>
                     setIsPending(false);
                     setError(err.message);
             })
-        },1000);
+        },0);
     return {data,isPending,errors}
 }
 export default ManageData;

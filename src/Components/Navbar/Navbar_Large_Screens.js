@@ -1,32 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState , useEffect } from "react";
 import { Link } from "react-router-dom";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaPinterestP,
-  FaTwitter,
-  FaUserCircle,
-} from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 
-function Navbar() {
-  const [tabs] = useState([
-    { url: "", title: "Home" },
-    { url: "ShopAll", title: "Shop All" },
-    { url: "OurStory", title: "Our Story" },
-    { url: "OurCraft", title: "Our Craft" },
-    { url: "Contact", title: "Contact" },
-  ]);
+function NavbarLarge(props) {
+  const [tabs] = useState(props.tabs);
   const [socialIcons] = useState([
-    <FaFacebookF />,
-    <FaInstagram />,
-    <FaTwitter />,
-    <FaPinterestP />,
+    ...props.socialIcons,
     <div className="nav-top--login-cart">
       <div>
-        <span className="user-icon">
-          <FaUserCircle />
-        </span>
         <Link className="login" to="/Auth/Login">
           Log In
         </Link>
@@ -37,6 +18,7 @@ function Navbar() {
     </div>,
     ,
   ]);
+
   const showHideNav = () => {
     var prevY = window.pageYOffset;
     window.onscroll = function () {
@@ -52,14 +34,14 @@ function Navbar() {
       prevY = currentY;
     };
   };
-  useEffect(() => {
+  useEffect(()=>{
     showHideNav();
-  }, []);
+  },[])
   const [activeTab, setActive] = useState("");
   return (
     <div id="nav-section">
       <div className="row nav-top">
-        <div className="col-lg-4 col-12">
+        <div className="col-lg-4 col-12 mb-4">
           <form className="search-box">
             <span className="search-icon">
               <FiSearch />
@@ -69,7 +51,7 @@ function Navbar() {
         </div>
         <div className="col-lg-3 col-2 nav-brand">adalene.</div>
         <div className="col-lg-5 col-10">
-          <ul className="navbar-nav--head align-items-center">
+          <ul className="navbar-nav--head">
             {socialIcons.map((element) => {
               return (
                 <li key={Math.random() * 1000} className="nav-item--top">
@@ -82,8 +64,8 @@ function Navbar() {
           </ul>
         </div>
       </div>
-      <nav className="navbar navbar-expand-sm">
-        <div className="collapse navbar-collapse" id="navbar">
+      <nav className="navbar navbar-expand">
+        <div className=" navbar-collapse" id="navbar">
           <ul className="navbar-nav">
             {tabs.map((tab) => {
               return (
@@ -109,10 +91,11 @@ function Navbar() {
               );
             })}
           </ul>
+       
         </div>
       </nav>
     </div>
   );
 }
 
-export default Navbar;
+export default NavbarLarge;

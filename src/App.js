@@ -1,11 +1,13 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Styles/App.css";
+import "./Styles/Contact.css";
+import "./Styles/Home.css";
 import "./Styles/Auth.css";
 import "./Styles/Cart_Product.css";
 import "./Styles/Navbar.css";
 import "./Styles/Checkout.css";
 import "./Styles/Product.css";
-import Navbar from "./Components/Navbar";
+import Navbar from "./Components/Navbar/Navbar";
 import { Route, BrowserRouter, Switch } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import ShopAll from "./Components/ShopAll/ShopAll";
@@ -16,9 +18,13 @@ import Authentication from "./Components/Authentication/Authentication";
 import ProductDetails from "./Components/ShopAll/ProductDetails";
 import ManageData from "./ManageData";
 import Checkout from "./Components/Checkout/Checkout";
+import { useEffect } from "react";
 
 function App() {
-  ManageData("http://localhost:3001");
+  // useEffect(() => {
+  //   console.log(ManageData("http://localhost:3001/Products"));
+  //   // return () => console.log("Called once when the component is unmounting");
+  // }, []);
   return (
     <BrowserRouter>
       <Navbar />

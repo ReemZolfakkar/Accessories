@@ -1,22 +1,22 @@
 {  
   "Products": [
     {
-      "id": 1,
+      "id": "1",
       "imgurl": "../../Images/bag1.jpg",
       "name": "leatherbag",
-      "price": "399",
-      "colors": [
-        "red"
-      ]
+      "price": "399"
     },
     {
-      "id": 2,
+      "id": "2",
       "imgurl": "../../Images/bag1.jpg",
       "name": "leatherbag",
-      "price": "399",
-      "colors": [
-        "red"
-      ]
+      "price": "399"
+    },
+    {
+      "id": "3",
+      "imgurl": "../../Images/bag1.jpg",
+      "name": "leatherbag",
+      "price": "399"
     }
   ],
   "Cart": [

@@ -6,8 +6,10 @@ import bag1 from '../../Images/bag1.jpg'
 
 function ProductDetails(props) {
     const {id}=useParams()
-    const {data:product,error,isPending}=ManageData(`http://localhost:3001/Products/${id}`)
-    const {data:orders,e,isPend}=ManageData(`http://localhost:3001/Cart`)
+    // const {data:product,error,isPending}=ManageData(`http://localhost:3001/Products/${id}`)
+    const {data:product,error,isPending}=[]
+    const {data:orders,e,isPend}=[]
+    // const {data:orders,e,isPend}=ManageData(`http://localhost:3001/Cart`)
     const [cart,setCart]=useState({color:'',quantity:''})
     const handleCart=(e)=>{
       const key = e.target.name;
