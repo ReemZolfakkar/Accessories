@@ -3,7 +3,7 @@ import contact_validate from "../../Functions/Contact_Validate";
 
 function Contact() {
   const [formerrors, setFormErrors] = useState({});
-  const [isSubmit, setisSubmit] = useState(false);
+  const [isSubmit, setisSubmit] = useState(0);
   const [newuser, setNewuser] = useState({
     firstname: "",
     secondname: "",
