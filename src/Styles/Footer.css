@@ -1,0 +1,44 @@
+.footer{
+    position: relative;
+    background-color: #ffffff;
+    padding: 10px;
+    margin: 10px;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    min-height: 500px;
+}
+.footer-item-value {
+    margin-bottom: 20px;
+    color: black !important;
+}
+.email{
+    border: none;
+}
+.join-us{
+    font-weight: bold;
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: 0.25em;
+}
+.footer-btn{
+    width: auto;
+    margin-top: 10px;
+    padding:13px 50px;
+    background-color:#ffffff;
+    border:1px solid rgb(188, 76, 42);
+    color: rgb(188, 76, 42);
+    cursor: pointer!important;
+}
+.footer-btn:active{
+    background-color:rgb(188, 76, 42);
+    border: solid rgb(188, 76, 42);
+    color: #ffffff;
+    padding: 50px;
+    
+}
+@media screen and (max-width:760px) {
+    .footer-item{
+        margin: 0 43%;
+    }
+}

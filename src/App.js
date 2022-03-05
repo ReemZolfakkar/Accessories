@@ -5,7 +5,9 @@ import "./Styles/Home.css";
 import "./Styles/Auth.css";
 import "./Styles/Cart_Product.css";
 import "./Styles/Navbar.css";
+import "./Styles/Footer.css"
 import "./Styles/Checkout.css";
+import "./Styles/OurStory.css";
 import "./Styles/Product.css";
 import Navbar from "./Components/Navbar/Navbar";
 import { Route, BrowserRouter, Switch } from "react-router-dom";
@@ -18,7 +20,7 @@ import Authentication from "./Components/Authentication/Authentication";
 import ProductDetails from "./Components/ShopAll/ProductDetails";
 import ManageData from "./ManageData";
 import Checkout from "./Components/Checkout/Checkout";
-import { useEffect } from "react";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   // useEffect(() => {
@@ -56,6 +58,7 @@ function App() {
           </Route>
         </Switch>
       </div>
+      <Footer/>
     </BrowserRouter>
   );
 }

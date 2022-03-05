@@ -12,4 +12,6 @@
 }
 .App{
   margin-top: 15px;
+  max-width: 100%;
+  overflow-x: hidden;
 }

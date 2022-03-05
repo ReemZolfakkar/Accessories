@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import ProductCard from "../ShopAll/ProductCard";
 import i2 from "../../Images/home_2.webp";
 import i3 from "../../Images/home_3.webp";
-import i4 from "../../Images/home_6.webp";
-import i5 from "../../Images/home_7.webp";
-import i6 from "../../Images/home_8.webp";
+import i7 from "../../Images/home_9.webp";
+import i8 from "../../Images/home_10.webp";
 import ItemsCarousel from "react-items-carousel";
 import { Link } from "react-router-dom";
+import Fixed_widget from "./Fixed_widget";
+import Changed_widget from "./Changed_widget";
+import Img_card from "./Img_card";
+import Home_Fixed_Cards_Data from "./../../Functions/Home_Fixed_Cards_Data";
 
 function Home() {
   const [activeItemIndex, setActiveItemIndex] = useState(0);
@@ -96,29 +99,8 @@ function Home() {
       colors: ["red"],
     },
   ];
-  const [section3Data, setSection3Data] = useState([
-    {
-      title1: "Family Owned",
-      title2: "BRAND",
-      btn: "Read our story",
-      navTo: "/OurStory",
-      imgSrc: i4,
-    },
-    {
-      title1: "Hand Crafted",
-      title2: "PRODUCTS",
-      btn: "About our leather",
-      navTo: "/OurCraft",
-      imgSrc: i5,
-    },
-    {
-      title1: "Created in the",
-      title2: "USA",
-      btn: "Contact our team",
-      navTo: "/Contact",
-      imgSrc: i6,
-    },
-  ]);
+  const imgCards = Home_Fixed_Cards_Data().imgCards;
+  const section3Data = Home_Fixed_Cards_Data().section3Data;
   return (
     <>
       <header className="home-header">
@@ -158,28 +140,20 @@ function Home() {
           </Link>
         </div>
       </div>
-      {/* <div className="row pic-sections">
-        <div className="col-6 bg-beige fixed-section">
-          <img src={i2} />
-          <p>I'm a product</p>
-          <h6>$100.00</h6>
+      <div className="row widgets">
+        <div className="col-6 px-0">
+          <Changed_widget imgUrl={i2} title={"I'm a product"} price={100} />
         </div>
-        <div className="col-6 movable-section">
-          <img style={{ height: "700px", width: "100%" }} src={i3} />
-          <h5> MINI LEATHER GOODS</h5>
+        <div className="col-6 px-0">
+          <Fixed_widget imgUrl={i3} title={" MINI LEATHER GOODS"} />
         </div>
-        <div className="col-6 bg-beige fixed-section">
-          <img src={i2} />
-          <p>I'm a product</p>
-          <h6>$100.00</h6>
+        <div className="col-6 px-0">
+          <Fixed_widget imgUrl={i7} title={" MINI LEATHER GOODS"} />
         </div>
-        <div className="col-6 bg-beige fixed-section">
-          <img src={i2} />
-          <p>I'm a product</p>
-          <h6>$100.00</h6>
+        <div className="col-6 px-0">
+          <Changed_widget imgUrl={i8} title={"I'm a product"} price={100} />
         </div>
       </div>
-       */}
       <div className="row section-3">
         {section3Data.map((item, index) => {
           return (
@@ -199,12 +173,40 @@ function Home() {
                 </h4>
                 <Link to={item.navTo}>
                   <span className="section-3__card__content__btn">
-                    {item.btn}</span>
+                    {item.btn}
+                  </span>
                 </Link>
               </div>
             </div>
           );
         })}
+      </div>
+      <div className="last-section">
+        <div className="carousel2">
+          <h4 className="sub-title2">
+            FOLLOW
+            <br />
+            ADALENE ON INSTAGRAM
+          </h4>
+          <ItemsCarousel
+            requestToChangeActive={setActiveItemIndex}
+            activeItemIndex={activeItemIndex}
+            activePosition={"center"}
+            numberOfCards={5}
+            leftChevron={<button>{"<"}</button>}
+            rightChevron={<button>{">"}</button>}
+            outsideChevron
+            chevronWidth={chevronWidth}
+          >
+            {imgCards.map((value) => {
+              return (
+                <React.Fragment key={value.id}>
+                  <Img_card imgUrl={value.imgurl} />
+                </React.Fragment>
+              );
+            })}
+          </ItemsCarousel>
+        </div>
       </div>
     </>
   );
