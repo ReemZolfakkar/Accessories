@@ -1,64 +1,69 @@
-import React,{useState} from 'react'
-import { useParams } from 'react-router-dom'
+import React,{useState,useEffect} from 'react'
+import { useParams} from 'react-router-dom'
 import ManageData from '../../ManageData'
 import bag1 from '../../Images/bag1.jpg'
-
+import { selectedProduct } from '../../redux/actions/productActions'
+import axios from 'axios'
+import { useSelector,useDispatch} from 'react-redux'
+import ProductInfo from './ProductInfo'
 
 function ProductDetails(props) {
     const {id}=useParams()
-    // const {data:product,error,isPending}=ManageData(`http://localhost:3001/Products/${id}`)
-    const {data:product,error,isPending}=[]
-    const {data:orders,e,isPend}=[]
-    // const {data:orders,e,isPend}=ManageData(`http://localhost:3001/Cart`)
-    const [cart,setCart]=useState({color:'',quantity:''})
-    const handleCart=(e)=>{
-      const key = e.target.name;
-      const value =e.target.value;
-      setCart({...cart,[key]:value})    
-    }
-    const submitCart=(e)=>{
-           const order=cart;
-           fetch('http://localhost:3001/Cart',{
-            method:'POST',
-            headers:{"Content-Type":"application/json"},
-            body:JSON.stringify(order)
-           }).then(()=>{
-             console.log("new product in cart")
-           })
-    }
+    const dispatch=useDispatch();
+    const product=useSelector((state)=>state.product)
+    const [error,setError]=useState(true);
+    const fetchProductsDetails=async()=>{
+      const response=await axios.get(`https://fakestoreapi.com/products/${id}`).catch((err)=>{
+          setError(true)
+      });
+      dispatch(selectedProduct(response.data));
+      setError(false)   
+
+  };
+  const handleCart=(e)=>{
+    const key = e.target.name;
+    const value =e.target.value;
+      
+  }
+  useEffect(()=>{
+      fetchProductsDetails();
+  },[])
+  if (error==true)return true;
+  const selectedproduct=product.product
     return (
     <div className='product-details'>
-      {isPending && <div>Loading...</div>}
-      {error && <div>{error}</div>}
+      {error==true && <div>Loading...</div>}
+      {error==false && <div>{error}</div>}
       {product &&
        <div className='row'>
-       <div className='col'>
-         
+       <div className='col-6 '>
+         <div className='product-details-div-img'>
+         <img className='product-details-img' src={selectedproduct.image}></img>
+         </div>
        </div>
-       <div className='col'>
-          <div>
-            <span>{product.name}</span>
+       <div className='col-6'>
+          <div >
+            <h1 className='product-details-title'>{selectedproduct.title}</h1>
           </div>
-          <div>
-            <span>{product.id}</span>
+          <div className='product-details-price-div'>
+            <span className='product-details-price'>{selectedproduct.price} EGP</span>
           </div>
-          <div>
-            <span>{product.price}</span>
-          </div>
-          <div className='d-flex' >
-            { product.colors.map((value,index)=>{return(
-                <div className='product-item-colors' key={index} style={{background:`${value}`}} onClick={handleCart} />  
-            )})}
-        </div>
-          <div>
+          <div className='product-details-quantity'>
             <span>Quantity</span>
           </div>
-          <div>
-            <input type="number" id="quantity" name="quantity" min="1" max="5" onChange={handleCart}></input>
+          <div className='product-details-quantity-input-div'>
+            <input className='product-details-quantity-input' type="number" id="quantity" name="quantity" min="1" max="5" onChange={handleCart}></input>
           </div>
-          <div>
-            <button onClick={submitCart}>Add to Cart</button>
+          <div >
+            <button className='product-details-btn'>
+              <span className='product-details-btn-text'>
+              Add to Cart
+              </span>
+            </button>
           </div>
+          <ProductInfo description={selectedproduct.description}>
+
+          </ProductInfo>
        </div>
       </div>
       }
