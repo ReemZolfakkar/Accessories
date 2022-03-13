@@ -6,15 +6,14 @@ function Contact() {
   const [isSubmit, setisSubmit] = useState(0);
   const [newuser, setNewuser] = useState({
     firstname: "",
-    secondname: "",
+    lastname: "",
     email: "",
     subject: "",
     message: "",
   });
   const handleInput = (e) => {
-    const key = e.target.name;
-    const value = e.target.value;
-    setNewuser({ ...newuser, [key]: value });
+    let {name,value} = e.target;
+    setNewuser({ ...newuser, [name]: value });
   };
   const handleUser = (e) => {
     e.preventDefault();
