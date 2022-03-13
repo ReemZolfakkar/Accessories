@@ -3,9 +3,9 @@ import React from 'react'
 function Right_widget(props) {
   return (
     <div className='row'>
-       <div  className="col-6 left-img "  style={{backgroundImage:`url(${props.imgurl})`}}>
+       <div  className="col-sm left-img "  style={{backgroundImage:`url(${props.imgurl})`}}>
        </div>
-       <div className="col-6 right-paragraph">
+       <div className="col-sm right-paragraph">
        <h2 className="font_5" style={{lineHeight:"1.2em",textAlign:"center",fontSize:"24px"}}>
       <span  style={{letterSpacing:"0.25em"}}>{props.title}</span>
       </h2>

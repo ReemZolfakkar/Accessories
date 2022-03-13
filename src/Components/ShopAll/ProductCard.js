@@ -1,15 +1,16 @@
-import React ,{useState}from 'react'
+import React ,{useState,useEffect}from 'react'
 import { Link,useHistory } from "react-router-dom"
+
 import bag1 from '../../Images/bag1.jpg'
 
 function ProductCard(props) {
-   
-
+  const Product=props.Product;
+  
   return (<>
     <div  className='product-item' >
-        <Link to={`/ProductDetails/${props.id}`}>
+        <Link to={`/ProductDetails/${Product.id}`}>
             <div className='product-item-header'>
-                <img src={bag1} className='product-item-image'>
+                <img src={Product.image} className='product-item-image'>
                 </img>
                 
                 <button className='product-item-review'  >
@@ -18,14 +19,9 @@ function ProductCard(props) {
             
             </div>
         </Link>
-        <span className='product-item-name'>{props.Product.name}</span>
-        <div className='d-flex' >
-        { props.Product.colors.map((value,index)=>{return(
-            <div className='product-item-colors' key={index} style={{background:`${value}`}} />  
-        )})}
-        </div>
+        <span className='product-item-name'>{Product.title}</span>
         <span className='product-item-price'>
-            {props.Product.price}.00 EGP
+            {Product.price} EGP
         </span>
     </div>
  

@@ -12,12 +12,8 @@
     height: 500px;
   }
   .font_8{
-    margin: 0px 0px 10px calc((100% - 490px) * 0.5);
-    word-wrap: break-word;
-    width:75%;
-    grid-area: 3 / 1 / 4 / 2;
-    justify-self: start;
-    align-self: start;
+    line-height: 1.2em;
+    text-align: center;
   }
   .right-img{
   
