@@ -15,3 +15,52 @@
   max-width: 100%;
   overflow-x: hidden;
 }
+/*********
+  LOADER
+**********/
+.wrapper{
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  padding-top: 40px;
+}
+.circle{
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: rgb(188, 76, 42);
+  border-radius: 50%;
+  animation: loading 1.5s cubic-bezier(.8, .5, .2, 1.4) infinite;
+  transform-origin: bottom center;
+  position: relative;
+}
+@keyframes loading{
+  0%{
+    transform: translateY(0px);
+    background-color: rgb(188, 76, 42);
+  }
+  50%{
+    transform: translateY(50px);
+    background-color: #ef584a;
+  }
+  100%{
+    transform: translateY(0px);
+    background-color: rgb(188, 76, 42);
+  }
+}
+.circle-1{
+  animation-delay: 0.05s;
+}
+.circle-2{
+  animation-delay: 0.1s;
+}
+.circle-3{
+  animation-delay: 0.15s;
+}
+.circle-4{
+  animation-delay: 0.2s;
+}
+.circle-5{
+  animation-delay: 0.25s;
+}

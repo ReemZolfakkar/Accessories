@@ -10,5 +10,11 @@ export const selectedProduct=(product)=>{
     return{
         type:ActionTypes.SELECTED_PRODUCT,
         payload:product,
-    }
-}
+    };
+};
+export const setCart=(product)=>{
+    return{
+        type:ActionTypes.SET_CART,
+        payload:product,
+    };
+};

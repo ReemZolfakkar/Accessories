@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect ,useRef} from "react";
 import NavbarLarge from "./Navbar_Large_Screens";
 import NavbarSmall from "./Navbar_Small_Screens";
+
 import {
   FaFacebookF,
   FaInstagram,
@@ -38,9 +39,9 @@ function Navbar() {
   return (
     <>
       {width > 500 ? (
-        <NavbarLarge socialIcons={socialIcons} tabs={tabs} />
+        <NavbarLarge socialIcons={socialIcons} tabs={tabs}/>
       ) : (
-        <NavbarSmall socialIcons={socialIcons} tabs={tabs} />
+        <NavbarSmall socialIcons={socialIcons} tabs={tabs}/>
       )}
     </>
   );

@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
+import { useSelector } from "react-redux";
+
 
 function NavbarLarge(props) {
+  let cart_items_no=useSelector((state) => state.cartProducts.cartNumber);
   const [tabs] = useState(props.tabs);
-  const [socialIcons] = useState([
+  const socialIcons =[
     ...props.socialIcons,
     <div className="nav-top--login-cart">
       <div>
@@ -13,11 +16,11 @@ function NavbarLarge(props) {
         </Link>
       </div>
       <Link className="cart" to="/Checkout">
-        Cart(0)
+        Cart({cart_items_no?cart_items_no:cart_items_no})
       </Link>
     </div>,
     ,
-  ]);
+  ];
 
   const showHideNav = () => {
     var prevY = window.pageYOffset;

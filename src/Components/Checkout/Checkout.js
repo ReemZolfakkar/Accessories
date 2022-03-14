@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import ProductCard from "./ProductCard";
 import { RiVisaLine } from "react-icons/ri";
 import Payment_Validate from "./../../Functions/Payment_Validate";
+import { useSelector } from "react-redux";
+
 function Checkout() {
-  const [products, setProducts] = useState([
-    { name: "product1", price: "20$" },
-    { name: "product2", price: "17$" },
-  ]);
+  const cart_items = useSelector((state) => state.cartProducts.cartProducts);
+  // const [products, setProducts] = useState([
+  //   { name: "product1", price: "20$" },
+  //   { name: "product2", price: "17$" },
+  // ]);
   const [visaData, setVisaData] = useState({
     CardNumber: "",
     CardHolder: "",
@@ -28,13 +31,13 @@ function Checkout() {
     <div className="row Checkout">
       <div className="col-4 Chechout__summarize">
         checkout list
-        {/* {products.map((product, index) => {
+        {cart_items.map((product, index) => {
           return (
             <div key={index}>
-              <ProductCard Product={product} id={index} />
+              <ProductCard Product={product} />
             </div>
           );
-        })} */}
+        })}
       </div>
       <div className="col-4 Chechout__form">
         <div>

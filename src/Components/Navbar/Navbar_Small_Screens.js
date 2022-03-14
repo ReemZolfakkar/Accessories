@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import { AiOutlineBars, AiOutlineClose } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
+import { useSelector } from "react-redux";
 
 function NavbarSmall(props) {
+  let cart_items_no=useSelector((state) => state.cartProducts.cartNumber);
   const [tabs] = useState(props.tabs);
-  const [socialIcons] = useState(props.socialIcons);
+  const {socialIcons} = props;
   const [expandNav, setExpand] = useState(0);
-  // const [activeTab, setActive] = useState("");
   const toggleExpand = () => {
     setExpand(!expandNav);
   };
@@ -68,12 +69,7 @@ function NavbarSmall(props) {
                     key={Math.random() * 1000}
                     className="nav-item"
                   >
-                    <Link
-                      className={`${
-                       "nav-link"
-                      }`}
-                      to={`/${tab.url}`}
-                    >
+                    <Link className={`${"nav-link"}`} to={`/${tab.url}`}>
                       {tab.title}
                     </Link>
                   </li>
@@ -86,7 +82,7 @@ function NavbarSmall(props) {
         <>
           <div className="row nav-small-closed mx-0 py-2">
             <ul className="col-6 navbar-nav--social--small">
-              {socialIcons.map((element) => {
+              {socialIcons?.map((element) => {
                 return (
                   <li key={Math.random() * 1000} className="nav-item--top">
                     <span className="nav-link--top">{element}</span>
@@ -96,7 +92,7 @@ function NavbarSmall(props) {
             </ul>
             <div className="col-3">
               <Link className="cart" to="/Checkout">
-                Cart(0)
+                Cart({cart_items_no})
               </Link>
             </div>
             <div className="col-3 text-end">

@@ -10,22 +10,22 @@ function Footer() {
             </div>
             <div className='col-sm footer-item'>
                     <div className='footer-item-value'>
-                        <Link style={{color:'black'}}>
+                        <Link to={"/"} style={{color:'black'}}>
                             Home
                         </Link>
                     </div>
                     <div className='footer-item-value'>
-                        <Link style={{color:'black'}}>
+                        <Link to={"/"} style={{color:'black'}}>
                             ShopAll
                         </Link>
                     </div>
                     <div className='footer-item-value'>
-                        <Link style={{color:'black'}}>
+                        <Link to={"/"} style={{color:'black'}}>
                             OurStory
                         </Link>
                     </div>
                     <div className='footer-item-value'>
-                        <Link style={{color:'black'}}>
+                        <Link to={"/"} style={{color:'black'}}>
                             OurCraft
                         </Link>
                     </div>
