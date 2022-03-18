@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import register_validate from "./../../Functions/Register_Validate";
-import axios from "axios";
 
 function Login() {
   const [formerrors, setFormErrors] = useState({});
@@ -19,28 +18,6 @@ function Login() {
     setFormErrors(register_validate(user));
     setisSubmit(true);
   };
-  const validateUserLogin = async () => {
-    const response = await axios.get("http://localhost:3001/Users");
-    let userFound = {};
-    userFound = response.data.find(({ email }) => user.email == email);
-    if (userFound) {
-      if (userFound.password == user.password) {
-        //Successful login
-        console.log("logged in");
-      } else {
-        //Wrong password
-        setFormErrors({...formerrors,password:"Wrong password"})
-      }
-    } else {
-      //Not a user
-      setFormErrors({...formerrors,email:"Wrong email"})
-    }
-  };
-  useEffect(() => {
-    if (!formerrors.email && !formerrors.password && isSubmit) {
-      validateUserLogin();
-    }
-  }, [formerrors]);
   return (
     <div onSubmit={handleUser}>
       <div className="Auth-form">

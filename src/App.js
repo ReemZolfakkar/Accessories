@@ -5,7 +5,7 @@ import "./Styles/Home.css";
 import "./Styles/Auth.css";
 import "./Styles/Cart_Product.css";
 import "./Styles/Navbar.css";
-import "./Styles/Footer.css"
+import "./Styles/Footer.css";
 import "./Styles/Checkout.css";
 import "./Styles/OurStory.css";
 import "./Styles/Product.css";
@@ -18,15 +18,23 @@ import OurStory from "./Components/OurStory/OurStory";
 import Contact from "./Components/Contact/Contact";
 import Authentication from "./Components/Authentication/Authentication";
 import ProductDetails from "./Components/ShopAll/ProductDetails";
-import ManageData from "./ManageData";
 import Checkout from "./Components/Checkout/Checkout";
 import Footer from "./Components/Footer/Footer";
+import axios from "axios";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { initCart } from './redux/actions/productActions';
+
 
 function App() {
-  // useEffect(() => {
-  //   console.log(ManageData("http://localhost:3001/Products"));
-  //   // return () => console.log("Called once when the component is unmounting");
-  // }, []);
+  let dispatch=useDispatch();
+  async function getCart() {
+    let response = await axios.get("http://localhost:3001/Cart");
+    dispatch(initCart(response.data.items));
+  }
+  useEffect(() => {
+    getCart();
+  }, []);
   return (
     <BrowserRouter>
       <Navbar />
@@ -58,8 +66,9 @@ function App() {
           </Route>
         </Switch>
       </div>
-      <Footer/>
+      <Footer />
     </BrowserRouter>
+  
   );
 }
 

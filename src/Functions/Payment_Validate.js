@@ -1,7 +1,7 @@
 const Payment_Validate = (paymentData) => {
   const error = {};
   const card_number_Regex = new RegExp("^4[0-9]{12,15}$");
-  const card_holder_Regex = new RegExp("^([a-zA-Z]{2,10})+( [a-zA-Z]{2,10})$");
+  const card_holder_Regex = new RegExp("^[a-zA-Z]{4,10}$");
   const card_expire_Regex = new RegExp(
     "^(0[1-9]|1[0-2])/?([0-9]{4}|[0-9]{2})$"
   );
@@ -16,7 +16,7 @@ const Payment_Validate = (paymentData) => {
   if (!paymentData.CardHolder) {
     error.CardHolder = "Card number is required.";
   } else if (!paymentData.CardHolder.match(card_holder_Regex)) {
-    error.CardHolder = "Accept only [alphabets,*,";
+    error.CardHolder = "Accept only alphabets";
   }
   if (!paymentData.Expires) {
     error.Expires = "Expire date is required.";

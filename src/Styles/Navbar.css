@@ -204,4 +204,7 @@ a.nav-link--top {
   .nav-brand {
     transform: translateX(0);
   }
+  .cart {
+    font-size: 16px;
+  }
 }

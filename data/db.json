@@ -1,14 +1,16 @@
 {
-  "Users": [
-    {
-      "name": "doaa essam",
-      "password": "113331111",
-      "email": "due_essam_2015@yahoo.com",
-      "address": "cairo",
-      "phone": "01012949933",
-      "id": 1
-    }
-  ],
+  "Orders": [],
+  "Cart": {
+    "items": [
+      {
+        "itemId": 10,
+        "title": "SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s",
+        "image": "https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg",
+        "price": 109,
+        "count": 1
+      }
+    ]
+  },
   "Products": [
     {
       "id": "1",
@@ -26,13 +28,6 @@
       "id": "3",
       "imgurl": "../../Images/bag1.jpg",
       "name": "leatherbag",
-      "price": "399"
-    }
-  ],
-  "Cart": [
-    {
-      "color": "red",
-      "quantity": "3",
       "price": "399"
     }
   ]

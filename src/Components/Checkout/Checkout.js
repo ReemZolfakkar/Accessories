@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import { RiVisaLine } from "react-icons/ri";
 import Payment_Validate from "./../../Functions/Payment_Validate";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import { resetCart } from "./../../redux/actions/productActions";
 
 function Checkout() {
+  function emptyCart() {
+    axios.post("http://localhost:3001/Cart", { items: [] });
+  }
+  const dispatch = useDispatch();
   const cart_items = useSelector((state) => state.cartProducts.cartProducts);
-  // const [products, setProducts] = useState([
-  //   { name: "product1", price: "20$" },
-  //   { name: "product2", price: "17$" },
-  // ]);
+  let totalPrice = null;
+  const isSubmit = useRef(false);
   const [visaData, setVisaData] = useState({
     CardNumber: "",
     CardHolder: "",
@@ -26,20 +30,48 @@ function Checkout() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors(Payment_Validate(visaData));
+    isSubmit.current = true;
   };
+  useEffect(() => {
+    if (
+      !formsErrors.CardNumber &&
+      !formsErrors.CardHolder &&
+      !formsErrors.CVC &&
+      !formsErrors.Expires
+    ) {
+      if (isSubmit.current) {
+        emptyCart();
+        dispatch(resetCart({ items: [] }));
+        setVisaData({
+          CardNumber: "",
+          CardHolder: "",
+          Expires: "",
+          CVC: "",
+        });
+      } else {
+        isSubmit.current = false;
+      }
+    }
+  }, [formsErrors]);
   return (
     <div className="row Checkout">
-      <div className="col-4 Chechout__summarize">
-        checkout list
-        {cart_items.map((product, index) => {
-          return (
-            <div key={index}>
-              <ProductCard Product={product} />
-            </div>
-          );
-        })}
+      <div className="col-10 col-md-8 col-lg-5 Chechout__summarize">
+        <p className="Chechout__summarize__title">
+           Shopping cart
+        </p>
+        <div className="Checkout__summarize__item-container">
+          {cart_items.map((product, index) => {
+            totalPrice += product.price * product.count;
+            return (
+              <div key={index}>
+                <ProductCard Product={product} />
+              </div>
+            );
+          })}
+        </div>
+        <h6 className="total-price">Total price is {totalPrice} L.E.</h6>
       </div>
-      <div className="col-4 Chechout__form">
+      <div className="col-10 col-md-8 col-lg-5 Chechout__form">
         <div>
           <div className="Chechout__form__visa">
             <RiVisaLine />
@@ -53,6 +85,7 @@ function Checkout() {
                   className="Chechout__form__inputs"
                   name="CardNumber"
                   onChange={handleInput}
+                  value={visaData.CardNumber}
                 ></input>
                 <p className="Chechout__form__error">
                   {formsErrors.CardNumber}
@@ -65,6 +98,7 @@ function Checkout() {
                   className="Chechout__form__inputs"
                   name="CardHolder"
                   onChange={handleInput}
+                  value={visaData.CardHolder}
                 ></input>
                 <p className="Chechout__form__error">
                   {formsErrors.CardHolder}
@@ -78,6 +112,7 @@ function Checkout() {
                   className="Chechout__form__inputs"
                   name="Expires"
                   onChange={handleInput}
+                  value={visaData.Expires}
                 ></input>
                 <p className="Chechout__form__error">{formsErrors.Expires}</p>
               </div>
@@ -88,12 +123,15 @@ function Checkout() {
                   className="Chechout__form__inputs"
                   name="CVC"
                   onChange={handleInput}
+                  value={visaData.CVC}
                 ></input>
                 <p className="Chechout__form__error">{formsErrors.CVC}</p>
               </div>
             </div>
             <div className="text-center">
-              <button className="Chechout__form__button" type="submit">Checkout</button>
+              <button className="Chechout__form__button" type="submit">
+                Checkout
+              </button>
             </div>
           </form>
         </div>

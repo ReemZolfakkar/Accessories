@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import ManageData from "../../ManageData";
-import bag1 from "../../Images/bag1.jpg";
 import { selectedProduct } from "../../redux/actions/productActions";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
@@ -27,7 +25,7 @@ function ProductDetails(props) {
   const addToCart = () => {
     if (Number(count) >= 1) {
       let { id, title, image, price } = product.product;
-      dispatch(setCart({ id, title, image, price, count }));
+      dispatch(setCart({ itemId:id, title, image, price,count: parseInt(count) }));
     }
   };
   useEffect(() => {

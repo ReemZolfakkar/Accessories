@@ -1,16 +1,26 @@
 .Checkout{
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
     margin: 0 !important;
+    padding: 50px 0;
 }
 .Chechout__summarize{
-    background-color: rgb(212, 190, 233);
+    margin-left: 0; 
+    margin-right: 0; 
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.Checkout__summarize__item-container{
+    margin-top: 40px;
+    max-height: 500px;
+}
+.total-price{
+    color: #BC4C2A;
 }
 .Chechout__form{
     border-radius: 4px;
     display: flex;
     justify-content: center;
-    background-color: rgb(110, 148, 150);
+    background-color: #4488DD;
     padding-bottom: 30px;
 }
 .Chechout__form input{

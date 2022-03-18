@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from "react";
 import register_validate from "../../Functions/Register_Validate";
-import axios from "axios";
 
 function Register() {
   const [formerrors, setFormErrors] = useState({});
   const [isSubmit, setisSubmit] = useState(false);
-  const register = async () => {
-    await axios.post("http://localhost:3001/Users", newuser).catch((err) => {
-      return err;
-    });
-  };
   const [newuser, setNewuser] = useState({
     name: "",
     password: "",
@@ -30,7 +24,6 @@ function Register() {
   useEffect(() => {
     if (Object.keys(formerrors).length === 0 && isSubmit) {
       setisSubmit(true);
-      register();
     }
   }, [formerrors]);
   return (
