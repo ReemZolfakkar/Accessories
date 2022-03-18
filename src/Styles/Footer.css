@@ -6,7 +6,9 @@
     max-width: 100%;
     box-sizing: border-box;
     overflow-x: hidden;
-    min-height: 500px;
+    display: flex;
+    flex-direction: row;
+    
 }
 .footer-item-value {
     margin-bottom: 20px;
@@ -37,8 +39,12 @@
     padding: 50px;
     
 }
-@media screen and (max-width:760px) {
-    .footer-item{
-        margin: 0 43%;
-    }
+.email-box {
+    display: flex;
+    margin: auto;
+    align-items: center;
+    border-bottom: 1px solid rgb(188, 76, 42);
+    color: rgb(188, 76, 42);
+    width: 200px;
+    justify-content: center;
 }

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 function Footer() {
   return (
     <div className='footer'>
-        <div className='row flex-center' style={{marginTop:'50px'}}>
+        <div className='row flex-center' style={{marginTop:'50px',width:'100%'}}>
             <div className='col-sm'>
                 <div className="nav-brand">adalene.</div>
             </div>
@@ -65,10 +65,10 @@ function Footer() {
                     <div className='join-us'>
                             JOIN US!
                     </div>
-                    <div>
+                    <div style={{textAlign:'center'}}>
                         Email*
                     </div>
-                    <div className="search-box">
+                    <div className="email-box">
                         <input className="email" type='email' id="email" name="email" required></input>
                     </div>
                     <div style={{textAlign:'center'}}>

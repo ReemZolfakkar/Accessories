@@ -39,7 +39,7 @@ function ProductDetails(props) {
       {error == false && <div>{error}</div>}
       {product && (
         <div className="row align-items-center justify-content-center">
-          <div className="col-6">
+          <div className="col-sm">
             <div className="product-details-div-img">
               <img
                 className="product-details-img"
@@ -47,7 +47,7 @@ function ProductDetails(props) {
               ></img>
             </div>
           </div>
-          <div className="col-6">
+          <div className="col-sm">
             <div>
               <h1 className="product-details-title">{selectedproduct.title}</h1>
             </div>
